@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Vulnerability Report Generator</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    label { display: block; margin-top: 10px; font-weight: bold; }
+    textarea { width: 100%; height: 100px; margin-top: 5px; }
+    input[type="text"] { width: 100%; padding: 8px; }
+    button { margin-top: 20px; padding: 10px 20px; font-size: 16px; }
+    .result { margin-top: 40px; background: #f0f0f0; padding: 20px; border-radius: 10px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Generate Security Vulnerability Report (Gemini)</h1>
+  <form method="post">
+    <label for="short_desc">Short Description of Vulnerability</label>
+    <input type="text" name="short_desc" required>
+
+    <label for="location">Location of Vulnerability (Feature/Function)</label>
+    <input type="text" name="location" required>
+
+    <label for="req">Request (optional)</label>
+    <textarea name="req"></textarea>
+
+    <label for="resp">Response (optional)</label>
+    <textarea name="resp"></textarea>
+
+
+    <button type="submit">Generate Report</button>
+  </form>
+
+  {% if result %}
+  <div class="result">
+    <h2>Generated Report:</h2>
+    {{ result }}
+  </div>
+  {% endif %}
+</body>
+</html>
+
